@@ -1,0 +1,77 @@
+{{ define "main" }}
+<div class="wrap">
+
+  {{/* ── Hero ── */}}
+  <section class="hero">
+    <h1 class="hero-name">{{ .Site.Params.author }}</h1>
+    <p class="hero-tagline">{{ .Site.Params.tagline }}</p>
+    <p class="hero-loc">📍 {{ .Site.Params.location }}</p>
+  </section>
+
+  {{/* ── Work ── */}}
+  {{ $work := where .Site.RegularPages "Section" "work" }}
+  {{ if $work }}
+  <section class="h-sec">
+    <div class="h-sec-hd">
+      <span class="sec-lbl">Work</span>
+      <a href="/work/" class="sec-all">All work →</a>
+    </div>
+    <div class="card-grid">
+      {{ $featured := where $work ".Params.featured" true }}
+      {{ $items := $work }}
+      {{ if gt (len $featured) 0 }}{{ $items = $featured }}{{ end }}
+      {{ range first 3 $items }}
+      <a href="{{ if .Params.externalURL }}{{ .Params.externalURL }}{{ else }}{{ .Permalink }}{{ end }}" class="card"{{ if .Params.externalURL }} target="_blank" rel="noopener"{{ end }}>
+        {{ with .Params.image }}<div class="card-img"><img src="{{ . }}" alt="{{ $.Title }}" loading="lazy"></div>{{ end }}
+        <span class="card-title">{{ .Title }}</span>
+        {{ with .Description }}<span class="card-desc">{{ . }}</span>{{ end }}
+        {{ if .Params.dateStart }}
+        <span class="card-period">{{ .Params.dateStart }}{{ with .Params.dateEnd }} – {{ . }}{{ end }}</span>
+        {{ end }}
+        {{ with .Params.tags }}
+        <div class="card-tags">{{ range first 3 . }}<span class="tag">{{ . }}</span>{{ end }}</div>
+        {{ end }}
+      </a>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* ── Writing ── */}}
+  {{ $posts := where .Site.RegularPages "Section" "posts" }}
+  {{ if $posts }}
+  <section class="h-sec">
+    <div class="h-sec-hd">
+      <span class="sec-lbl">Writing</span>
+      <a href="/posts/" class="sec-all">All posts →</a>
+    </div>
+    <div class="post-list">
+      {{ range first 5 $posts }}
+      <a href="{{ .Permalink }}" class="post-row">
+        <span class="post-dt">{{ .Date.Format "2006-01-02" }}</span>
+        <span class="post-title">{{ .Title }}</span>
+      </a>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* ── About ── */}}
+  <section class="h-sec">
+    <div class="h-sec-hd">
+      <span class="sec-lbl">About</span>
+      <a href="/about/" class="sec-all">Full profile →</a>
+    </div>
+    <div class="prose" style="margin-bottom: 1.5rem;">
+      <p>{{ .Site.Params.bio }}</p>
+    </div>
+    <div class="socials">
+      {{ with .Site.Params.social.github }}<a href="{{ . }}" class="soc-pill" target="_blank" rel="noopener">github</a>{{ end }}
+      {{ with .Site.Params.social.linkedin }}<a href="{{ . }}" class="soc-pill" target="_blank" rel="noopener">linkedin</a>{{ end }}
+      {{ with .Site.Params.social.mastodon }}<a href="{{ . }}" class="soc-pill" target="_blank" rel="me">mastodon</a>{{ end }}
+      {{ with .Site.Params.social.matrix }}<a href="{{ . }}" class="soc-pill" target="_blank" rel="noopener">matrix</a>{{ end }}
+    </div>
+  </section>
+
+</div>
+{{ end }}

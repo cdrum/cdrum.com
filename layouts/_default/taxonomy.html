@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div class="wrap">
+  <div class="pg-hd">
+    <h1>{{ .Title }}</h1>
+  </div>
+  <div class="post-list">
+    {{ range .Pages }}
+    <a href="{{ .Permalink }}" class="post-row">
+      <span class="post-dt">{{ .Date.Format "2006-01-02" }}</span>
+      <span class="post-title">{{ .Title }}</span>
+    </a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

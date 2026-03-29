@@ -1,0 +1,14 @@
+{{ define "main" }}
+<div class="wrap">
+  <div class="about-wrap">
+    <div class="prose">{{ .Content }}</div>
+    <div class="socials" style="margin-top: 2rem;">
+      {{ with .Site.Params.social.github }}<a href="{{ . }}" class="soc-pill" target="_blank" rel="noopener">github</a>{{ end }}
+      {{ with .Site.Params.social.linkedin }}<a href="{{ . }}" class="soc-pill" target="_blank" rel="noopener">linkedin</a>{{ end }}
+      {{ with .Site.Params.social.mastodon }}<a href="{{ . }}" class="soc-pill" target="_blank" rel="me">mastodon</a>{{ end }}
+      {{ with .Site.Params.social.matrix }}<a href="{{ . }}" class="soc-pill" target="_blank" rel="noopener">matrix</a>{{ end }}
+      {{ with .Site.Params.social.keyoxide }}<a href="{{ . }}" class="soc-pill" target="_blank" rel="noopener">keyoxide</a>{{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}

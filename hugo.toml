@@ -1,0 +1,47 @@
+baseURL = "https://cdrum.com/"
+languageCode = "en-us"
+languageName = 'English'
+title = "Chris Drumgoole"
+DefaultContentLanguage = "en"
+copyright = "Chris Drumgoole"
+
+[params]
+  author      = "Chris Drumgoole"
+  description = "Software engineer and CTO. Based in Singapore."
+  tagline     = "Engineer. Entrepreneur. CTO."
+  location    = "Singapore"
+  bio         = "Nearly 26 years in Asia — 5 in Hong Kong, 7 in Beijing, 14 and counting in Singapore. I'm a software engineer who has co-founded and built several ventures, and currently leads engineering as CTO. I write about the things I learn along the way."
+
+  [params.social]
+    github   = "https://github.com/cdrum"
+    linkedin = "https://www.linkedin.com/in/chrisdrum/"
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.highlight]
+    style     = "dracula"
+    noClasses = true
+
+[pagination]
+  pagerSize = 20
+
+[menu]
+  [[menu.main]]
+    identifier = "work"
+    name       = "Work"
+    url        = "/work/"
+    weight     = 10
+  [[menu.main]]
+    identifier = "posts"
+    name       = "Writing"
+    url        = "/posts/"
+    weight     = 20
+  [[menu.main]]
+    identifier = "about"
+    name       = "About"
+    url        = "/about/"
+    weight     = 30
+
+[permalinks]
+  posts = '/:year/:month/:day/:title/'

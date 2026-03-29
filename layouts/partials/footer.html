@@ -1,0 +1,13 @@
+<footer class="site-ft">
+  <div class="wrap">
+    <span class="ft-copy">© {{ now.Year }} {{ .Site.Params.author }}</span>
+    <div class="ft-links">
+      {{- with .Site.Params.social.mastodon }}
+      <a href="{{ . }}" class="ft-link" rel="me" target="_blank" rel="noopener">Mastodon</a>
+      {{- end }}
+      {{- with .Site.Params.social.github }}
+      <a href="{{ . }}" class="ft-link" target="_blank" rel="noopener">GitHub</a>
+      {{- end }}
+    </div>
+  </div>
+</footer>

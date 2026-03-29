@@ -1,0 +1,38 @@
+<meta charset="utf-8">
+<script>
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (saved === 'dark' || (!saved && prefersDark)) {
+      document.documentElement.classList.add('dark');
+    } else if (saved === 'light') {
+      document.documentElement.classList.add('light');
+    }
+  })();
+</script>
+<script>
+  function toggleTheme() {
+    var html = document.documentElement;
+    if (html.classList.contains('dark')) {
+      html.classList.remove('dark');
+      html.classList.add('light');
+      localStorage.setItem('theme', 'light');
+    } else {
+      html.classList.remove('light');
+      html.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    }
+  }
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} · {{ .Site.Title }}{{ end }}</title>
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+{{ $css := resources.Get "css/main.css" | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+{{- with .OutputFormats.Get "RSS" }}
+<link rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" href="{{ .Permalink }}">
+{{- end }}
+{{ if .Params.noindex }}<meta name="robots" content="noindex">{{ end }}
