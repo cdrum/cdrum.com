@@ -8,7 +8,7 @@ featured: false
 status: "active"
 dateStart: ""
 dateEnd: ""
-image: ""
+images: []
 links:
   github: ""
   live: ""

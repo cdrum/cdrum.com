@@ -313,6 +313,13 @@ html.dark .theme-toggle .icon-moon { display: none; }
 }
 .pg-hd p { font-size: .9rem; color: var(--tx-2); }
 
+/* ── Image grid (work single, multiple images) ── */
+.img-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: .75rem;
+}
+
 /* ── Work single ── */
 .work-hd { margin-bottom: 2.5rem; }
 .work-hd h1 {

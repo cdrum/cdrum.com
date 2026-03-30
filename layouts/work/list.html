@@ -7,7 +7,8 @@
   <div class="card-grid">
     {{ range .Pages }}
     <a href="{{ if .Params.externalURL }}{{ .Params.externalURL }}{{ else }}{{ .Permalink }}{{ end }}" class="card"{{ if .Params.externalURL }} target="_blank" rel="noopener"{{ end }}>
-      {{ with .Params.image }}<div class="card-img"><img src="{{ . }}" alt="{{ $.Title }}" loading="lazy"></div>{{ end }}
+      {{ $img := "" }}{{ if .Params.images }}{{ $img = index .Params.images 0 }}{{ else if .Params.image }}{{ $img = .Params.image }}{{ end }}
+      {{ if $img }}<div class="card-img"><img src="{{ $img }}" alt="{{ .Title }}" loading="lazy"></div>{{ end }}
       <span class="card-title">{{ .Title }}</span>
       {{ with .Description }}<span class="card-desc">{{ . }}</span>{{ end }}
       {{ if .Params.dateStart }}
