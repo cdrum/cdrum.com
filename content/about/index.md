@@ -13,4 +13,4 @@ Right now I'm deeply into AI-assisted engineering: using LLMs and agents as acti
 
 On the management side: I hire, set technical direction, do code review, and try to keep process minimal. I'm a Reforge alum across product, growth, and engineering leadership.
 
-Nearly 28 years in Asia — 5 in Hong Kong, 7 in Beijing, 16 and counting in Singapore.
+Originally from the US, grew up in Hong Kong, and studied Computer Science at the University of Michigan. After graduating, I headed back to Asia — 7 years in Beijing, then 16 and counting in Singapore.
