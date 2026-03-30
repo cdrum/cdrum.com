@@ -35,4 +35,4 @@ I'm CTO. That means owning the architecture end-to-end — from data model desig
 
 I manage a small engineering team: hiring, onboarding, code review, setting technical direction, and keeping delivery moving without unnecessary process. I make the calls on when to build vs. buy, how to structure the data layer for performance at scale, and how to keep the system maintainable as the team and product grow.
 
-We're also on a deliberate path to becoming an AI-native engineering organisation — embedding AI tooling into how we build, not just what we build.
+We're also on a deliberate path to becoming an AI-native engineering organization — embedding AI tooling into how we build, not just what we build.
