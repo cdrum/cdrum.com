@@ -10,7 +10,7 @@ copyright = "Chris Drumgoole"
   description = "Software engineer and CTO. Based in Singapore."
   tagline     = "Engineer. Entrepreneur. CTO."
   location    = "Singapore"
-  bio         = "Nearly 26 years in Asia — 5 in Hong Kong, 7 in Beijing, 14 and counting in Singapore. I'm a software engineer who has co-founded and built several ventures, and currently leads engineering as CTO. I write about the things I learn along the way."
+  bio         = "Nearly 30 years in Asia: 5 in Hong Kong, 7 in Beijing, 17 and counting in Singapore. I'm a software engineer, I've co-founded and built several ventures, and I currently lead engineering as CTO. I write about what I learn along the way."
 
   [params.social]
     github   = "https://github.com/cdrum"

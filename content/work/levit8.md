@@ -15,24 +15,24 @@ links:
 externalURL: 
 ---
 
-Levit8 is a B2B SaaS platform in the HR Tech space, built for recruitment organizations that need to screen large volumes of candidates without scaling their team proportionally. It automated the screening pipeline — from resume evaluation through to conducted interviews — using LLMs throughout.
+Levit8 is a B2B SaaS platform in HR tech, built for recruitment organizations that need to screen large volumes of candidates without growing their team at the same rate. It automated the screening pipeline end to end, from resume evaluation through to the interview itself, using LLMs at every stage.
 
-The company was born out of Antler's entrepreneurship residency program and raised USD 125k in seed funding.
+The company came out of Antler's entrepreneurship residency program and raised USD 125k in seed funding.
 
 ## What it does
 
-Recruiters define a job, upload a candidate pool, and Levit8 handles the rest. Resumes are parsed and scored against the job description by an LLM. Candidates who pass the first cut receive a screening interview — either text-based or real-time voice — conducted entirely by the AI. Post-interview, the system produces structured scores across skills, culture fit, and soft skills, which flow back into the recruiter dashboard for review.
+Recruiters define a job, upload a candidate pool, and Levit8 handles the rest. An LLM parses and scores each resume against the job description. Candidates who pass the first cut get a screening interview, text-based or real-time voice, conducted entirely by the AI. Afterward the system produces structured scores across skills, culture fit, and soft skills, and those flow back into the recruiter dashboard for review.
 
-The platform also included a Chrome extension for pulling job applications directly from LinkedIn, and a webhook API for syncing results back into ATS platforms.
+There was also a Chrome extension for pulling job applications straight from LinkedIn, and a webhook API for syncing results back into ATS platforms.
 
 ## Stack
 
-Python/FastAPI backend, Next.js/React frontend (separate apps for recruiter dashboard and candidate portal), MongoDB Atlas for data. Voice interviews ran on LiveKit with a custom agent pipeline. LLM workloads used OpenAI (GPT-4, GPT-4o-mini) with LangChain for prompt orchestration and Jinja2-templated prompts. Deployed on Google Cloud Run.
+Python/FastAPI backend, Next.js/React frontend (separate apps for the recruiter dashboard and the candidate portal), MongoDB Atlas for data. Voice interviews ran on LiveKit with a custom agent pipeline. LLM workloads used OpenAI (GPT-4, GPT-4o-mini) with LangChain for prompt orchestration and Jinja2-templated prompts. Deployed on Google Cloud Run.
 
 ## Architecture
 
-A single interview engine drove both text (WebSocket) and voice (LiveKit) modes from the same underlying logic. Interview state persisted in MongoDB, allowing sessions to pause and resume across connections. Voice interviews ran on a custom real-time agent pipeline — speech detection, transcription, LLM, and synthesis — with multiple provider options for latency tuning. LLM calls were tracked per evaluation stage for cost visibility.
+One interview engine drove both modes, text over WebSocket and voice over LiveKit, from the same underlying logic. Interview state lived in MongoDB, so sessions could pause and resume across connections. The voice side ran on a custom real-time agent pipeline (speech detection, transcription, LLM, synthesis) with several provider options for tuning latency. LLM calls were tracked per evaluation stage so we could see what each one cost.
 
 ## My role
 
-Co-Founder and CTO. I defined the initial technical strategy, designed the architecture, made the infrastructure decisions, and did the majority of the early coding — particularly the backend, the LLM integration layer, and the voice agent pipeline. I managed a team of two engineers and took the product from zero to a working platform with paying pilots in under six months. I have since left to pursue other opportunities.
+Co-Founder and CTO. I set the initial technical strategy, designed the architecture, made the infrastructure calls, and wrote most of the early code, especially the backend, the LLM integration layer, and the voice agent pipeline. I managed two engineers and took the product from nothing to a working platform with paying pilots in under six months. I've since moved on.
